@@ -16,6 +16,9 @@ public class Empleado {
 		else if (tipo == TipoEmpleado.Encargado) {
 			salarioBase = 2500;
 		}
+		else {
+			return -1;
+		}
 		
 		// Determinar las primas
 		if (ventasMes >= 1500) {
@@ -26,7 +29,12 @@ public class Empleado {
 		}
 		
 		// Determinar los extras
-		extras = horasExtra * 30;
+		if (horasExtra >= 0) {
+			extras = horasExtra * 30;
+		}
+		else {
+			extras = 0;
+		}
 		
 		return salarioBase + primas + extras;
 	}
